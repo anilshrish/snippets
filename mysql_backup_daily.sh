@@ -10,7 +10,7 @@ S3_BUCKET="bucket_name"
 #Get MYSQL_USER and MYSQL_PASSWORD, keeping it away from the script file because of security reasons.
 source /home/sysop/.env
 
-mysqldump -u "${MYSQL_USER}" -p"${MYSQL_PASSWORD}" --all-databases | gzip > "${SAVE_DIR}/${FILE_NAME}"
+mysqldump -u "${MYSQL_USER}" -p"${MYSQL_PASSWORD}" --all-databases --single-transaction --events --routines --triggers | gzip > "${SAVE_DIR}/${FILE_NAME}"
 
 if [ -e "${SAVE_DIR}"/"${FILE_NAME}" ]; then
 
