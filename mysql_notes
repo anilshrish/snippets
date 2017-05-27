@@ -1,0 +1,29 @@
+# MySqldump command:
+mysqldump -u root -p<password> --all-databases --single-transaction --events --routines --triggers > all_databases.sql
+
+
+# Dump multiple databases:
+mysqldump -u root -p --database db1 --database db2 > db1_2.sql
+
+# Dump only schema:
+mysqldump -u root -p --no-data db_name > db.sql
+
+# Dump only data but not schema:
+mysqldump -u root -p --no-create-info db_name > db.sql
+
+# Extract one database from the full database dump.
+sed -n '/^-- Current Database: `dbname`/,/^-- Current Database: `/p' alldatabases.sql > dbname.sql
+
+# Mysql execute query from CLI:
+mysql -u <user> -p -e "select * from schema.table"
+
+-----------------------------------------------------------------------------------------------
+Extras:
+
+# Auto completion for mysql
+mysql -u root -p<password> --auto-rehash
+
+This can be kept in my.cnf like this:
+
+[mysql]
+auto-rehash
