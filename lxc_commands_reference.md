@@ -18,7 +18,7 @@ lxc download from template:
 
   ```sudo lxc-create -t download -n <container-name>```
 
-      centos 7 amd64
+  ```centos 7 amd64```
 
 LXC shutdown:
 
